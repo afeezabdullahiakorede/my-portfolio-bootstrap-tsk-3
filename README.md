@@ -22,9 +22,6 @@ A modern, responsive portfolio website showcasing web development skills and pro
 - **Bootstrap Icons**: Icon library for visual enhancement
 - **CDN-based**: No build process required; just open and use
 
-## 📁 Project Structure
-
-```
 ## 👤 Author
 
 **Afeez Abdullahi Akorede**
