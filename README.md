@@ -25,11 +25,6 @@ A modern, responsive portfolio website showcasing web development skills and pro
 ## 📁 Project Structure
 
 ```
-CODVEDA-TSK-2-LV-2/
-├── index.html       # Main portfolio page
-└── README.md        # Project documentation
-```
-
 ## 👤 Author
 
 **Afeez Abdullahi Akorede**
