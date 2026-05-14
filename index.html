@@ -31,13 +31,19 @@
     --bs-body-bg: #000000;
     --bs-body-color: #ffffff;
     --bs-primary: #ffcc00; /* High-contrast yellow */
-}
+    }
 
-[data-bs-theme="dark"] .btn-primary {
+    [data-bs-theme="dark"] .btn-primary {
     background-color: #ffcc00;
     border-color: #ffcc00;
     color: #000;
-}
+    }
+
+    /* Ensures the honeypot is hidden from humans and screen readers */
+    [name="_gotcha"] {
+    display: none !important;
+    visibility: hidden !important;
+    }
     </style>
 </head>
 <body>
@@ -170,6 +176,8 @@
 
 <form action="https://formspree.io/f/xrejvolq" method="POST">
   <input type="hidden" name="_next" value="https://afeezabdullahiakorede.github.io/my-portfolio-bootstrap-tsk-3/thankyou.html">
+  <!-- Honeypot field - Spam protection -->
+  <input type="text" name="_gotcha" style="display:none !important" aria-hidden="true" tabindex="-1" autocomplete="off">
   
   <div class="mb-3">
     <label for="userName" class="form-label">Name</label>

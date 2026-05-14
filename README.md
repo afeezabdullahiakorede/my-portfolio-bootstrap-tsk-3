@@ -43,7 +43,45 @@ The portfolio includes a fully functional dark mode toggle that enhances user ex
 3. Theme preference is saved to localStorage
 4. On page reload, the saved theme is automatically applied
 
-## �👤 Author
+## 📁 Project Structure
+
+```
+CODVEDA-TSK-2-LV-2/
+├── index.html       # Main portfolio page with all features
+└── README.md        # Project documentation
+```
+
+**Note:** The contact form integrates with Formspree for backend processing. Form submissions are handled externally and don't require additional server-side files in this project.
+
+## 📧 Contact Form Feature
+
+The portfolio includes a fully functional contact form powered by Formspree:
+
+- **Formspree Integration**: Serverless form handling without backend setup
+- **Required Validation**: All fields (name, email, message) are required for submission
+- **Email Notifications**: Form submissions are sent directly to your email
+- **Redirect on Success**: Users are redirected to a thank you page after successful submission
+- **Spam Protection**: Honeypot field and built-in spam filtering
+- **Responsive Design**: Form adapts perfectly to all screen sizes
+
+**Form Fields:**
+- **Name**: Text input for visitor's full name
+- **Email**: Email input with validation
+- **Message**: Multi-line textarea for detailed messages
+
+**How it works:**
+1. User fills out the contact form with their details
+2. Formspree processes the submission server-side
+3. Email notification is sent to your inbox
+4. User is redirected to a thank you page
+5. Form data is securely stored and managed by Formspree
+
+**Setup Requirements:**
+- Active Formspree account (free tier available)
+- Form endpoint URL (already configured: `https://formspree.io/f/xrejvolq`)
+- Thank you page URL for post-submission redirect
+
+## 👤 Author
 
 **Afeez Abdullahi Akorede**
 - Front-End Developer
