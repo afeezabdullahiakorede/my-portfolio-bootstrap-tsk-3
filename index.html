@@ -26,6 +26,18 @@
       transform: scale(1.05); /* Increases size by 5% */
       cursor: pointer;
     }
+
+    [data-bs-theme="dark"] {
+    --bs-body-bg: #000000;
+    --bs-body-color: #ffffff;
+    --bs-primary: #ffcc00; /* High-contrast yellow */
+}
+
+[data-bs-theme="dark"] .btn-primary {
+    background-color: #ffcc00;
+    border-color: #ffcc00;
+    color: #000;
+}
     </style>
 </head>
 <body>
@@ -49,17 +61,24 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#contact">Contact</a>
                     </li>
-                    <button class="btn btn-outline-light ms-3" type="button">Hire Me</button>
+
+                    <div class="form-check form-switch ms-3 me-3">
+  <input class="form-check-input" type="checkbox" id="darkModeToggle">
+  <label class="form-check-label text-light" for="darkModeToggle">
+    <i class="bi bi-moon-stars-fill"></i>
+  </label>
+</div>
+                    <a class="btn btn-outline-warning ms-lg-3" href="#contact" role="button">Hire Me</a>
                 </ul>
             </div>
        </div>
     </nav>
     
-<section id="home" class="bg-light py-5 text-center">
+<section id="home" class="bg-body-tertiary py-5 text-center">
   <div class="container">
     <h1 class="display-4">Welcome! I build amazing web experiences.</h1>
     <p class="lead">I am Afeez Abdullahi Akorede, a passionate front-end developer specializing in creating clean,responsive and user-friendly websites.</p>
-    <a href="#" class="btn btn-outline-primary btn-lg mt-3">View My Work</a>
+    <!-- <a href="#projects" class="btn btn-outline-primary btn-lg px-4 me-md-2">View My Work</a> -->
   </div>
 </section>
 
@@ -72,7 +91,7 @@
 
 <!-- Right Side: The Story -->
 <div class="col-md-6">
-  <h2 class="fw-bold mt-3">Portfolio Project</h2>
+  <h2 class="fw-bold mt-3">One of My Projects</h2>
   <p class="text-muted">
     This project demonstrates my expertise in creating modern, user-friendly interfaces. 
     The standout feature is its Seamless Responsiveness using a mobile-first approach to ensure the layout remains fluid and accessible across all devices.
@@ -94,7 +113,7 @@
   </div>
 </section>
 
-<section id="skills" class="py-5 bg-light">
+<section id="skills" class="py-5 bg-body-tertiary">
   <div class="container text-center">
     <h2 class="fw-bold mb-5">Technical Skills</h2>
     <div class="row g-4">
@@ -148,30 +167,29 @@
     <div class="row">
       <div class="col-md-6 mx-auto">
         <h2 class="text-center fw-bold mb-4">Get In Touch</h2>
-        <form>
-          <!-- Name Input -->
-          <div class="mb-3">
-            <label for="userName" class="form-label">Name</label>
-            <input type="text" class="form-control" id="userName" placeholder="Your Name">
-          </div>
-          
-          <!-- Email Input -->
-          <div class="mb-3">
-            <label for="userEmail" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="userEmail" placeholder="name@example.com">
-          </div>
-          
-          <!-- Message Input -->
-          <div class="mb-3">
-            <label for="userMessage" class="form-label">Message</label>
-            <textarea class="form-control" id="userMessage" rows="4" placeholder="How can I help you?"></textarea>
-          </div>
-          
-          <!-- Submit Button -->
-          <div class="text-center">
-            <button type="submit" class="btn btn-dark px-5">Send Message</button>
-          </div>
-        </form>
+
+<form action="https://formspree.io/f/xrejvolq" method="POST">
+  <input type="hidden" name="_next" value="https://afeezabdullahiakorede.github.io/my-portfolio-bootstrap-tsk-3/thankyou.html">
+  
+  <div class="mb-3">
+    <label for="userName" class="form-label">Name</label>
+    <input type="text" name="name" class="form-control" id="userName" placeholder="Your Name" required>
+  </div>
+  
+  <div class="mb-3">
+    <label for="userEmail" class="form-label">Email address</label>
+    <input type="email" name="email" class="form-control" id="userEmail" placeholder="name@example.com" required>
+  </div>
+  
+  <div class="mb-3">
+    <label for="userMessage" class="form-label">Message</label>
+    <textarea name="message" class="form-control" id="userMessage" rows="4" placeholder="How can I help you?" required></textarea>
+  </div>
+  
+  <div class="text-center">
+    <button type="submit" class="btn btn-dark px-5">Send Message</button>
+  </div>
+</form>
       </div>
     </div>
   </div>
@@ -218,6 +236,26 @@
       // Initialize all tooltips on the page
 const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
 const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+
+const themeToggle = document.getElementById('darkModeToggle');
+const htmlElement = document.documentElement;
+
+themeToggle.addEventListener('change', () => {
+    if (themeToggle.checked) {
+        htmlElement.setAttribute('data-bs-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+    } else {
+        htmlElement.setAttribute('data-bs-theme', 'light');
+        localStorage.setItem('theme', 'light');
+    }
+});
+
+// Keep the theme consistent on refresh
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'dark') {
+    htmlElement.setAttribute('data-bs-theme', 'dark');
+    themeToggle.checked = true;
+}
     </script>
 </body>
 </html>
